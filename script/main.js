@@ -1,27 +1,43 @@
 // Import the data to customize and insert them into page
 const fetchData = () => {
-  fetch("customize.json")
-    .then(data => data.json())
-    .then(data => {
-      dataArr = Object.keys(data);
-      dataArr.map(customData => {
-        if (data[customData] !== "") {
-          if (customData === "imagePath") {
-            document
-              .querySelector(`[data-node-name*="${customData}"]`)
-              .setAttribute("src", data[customData]);
-          } else {
-            document.querySelector(`[data-node-name*="${customData}"]`).innerText = data[customData];
-          }
-        }
 
-        // Check if the iteration is over
-        // Run amimation if so
-        if ( dataArr.length === dataArr.indexOf(customData) + 1 ) {
-          animationTimeline();
-        } 
-      });
-    });
+  data = {
+    "greeting": "Hi",
+    "name": "Divya",
+    "greetingText": "How's your birthday going so far?",
+    "wishText": "I wish you ",
+    "imagePath": "img/lydia2.png",
+    "text1": "It's your birthday!!! :D",
+    "textInChatBox": "Happy birthday Divya!! I hope you have an amazong day blah blah ...",
+    "sendButtonLabel": "Send",
+    "text2": "That's what I was going to do.",
+    "text3": "But then I stopped.",
+    "text4": "I realised, I wanted to do something",
+    "text4Adjective": "special",
+    "text5Entry": "Because,",
+    "text5Content": "You have been a great friend to me!",
+    "smiley": ":)",
+    "bigTextPart1": "S",
+    "bigTextPart2": "O",
+    "wishHeading": "Happy Birthday!",
+    "outroText": "Okay, now come back and tell me if you liked it.",
+    "replayText": "Or click, if you want to watch it again.",
+    "outroSmiley": ":)"
+  }
+
+  dataArr = Object.keys(data);
+  dataArr.map(customData => {
+    if (data[customData] !== "") {
+      // console.log(`${customData}`)
+      // document.querySelector(`[data-node-name*="${customData}"]`).innerText = data[customData];
+    }
+
+    // Check if the iteration is over
+    // Run amimation if so
+    if (dataArr.length === dataArr.indexOf(customData) + 1) {
+      animationTimeline();
+    }
+  });
 };
 
 // Animation Timeline
